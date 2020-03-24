@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    {{ 'title_cate_list'|trans }}
+{% endblock %}
+{% block body %}
+    <h1>{{ 'title_cate_list'|trans }}</h1>
+    {% if pagination is defined and pagination.items|length %}
+        <div class="navigation text-center">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>{{ knp_pagination_sortable(pagination, 'label_id'|trans, 'c.id') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label_title'|trans, 'c.title') }}</th>
+
+                <th>{{ 'label_actions'|trans }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for cate in pagination.items %}
+                <tr>
+                    <td>{{ cate.id }}</td>
+
+                    <td>{{ cate.title }}</td>
+                    <td>
+                        <a href="{{ url('cate_edit', {id: cate.id}) }}" title="{{ 'cate_edit'|trans }}">
+                            {{ 'action_edit'|trans }}
+                        </a>
+
+                        <a href="{{ url('cate_delete', {id: cate.id}) }}" title="{{ 'cate_delete'|trans }}">
+                            {{ 'action_delete'|trans }}
+                        </a>
+
+
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+
+
+        <div>   <a href="{{ url('cate_create')}}" >
+                {{ 'action_create'|trans }}
+            </a></div>
+
+
+
+
+
+        <div class="navigation text-center">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+    {% else %}
+        <p>
+            {{ 'message_empty_list'|trans }}
+        </p>
+    {% endif %}
+{% endblock %}

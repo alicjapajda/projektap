@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+
+
+            <trans-unit id="label_id">
+                <source>label_id</source>
+                <target>Id</target>
+            </trans-unit>
+
+            <trans-unit id="title_event_list">
+                <source>title_event_list</source>
+                <target>Events</target>
+            </trans-unit>
+
+            <trans-unit id="label_date">
+                <source>label_date</source>
+                <target>Date</target>
+            </trans-unit>
+
+            <trans-unit id="label_title">
+                <source>label_title</source>
+                <target>Category</target>
+            </trans-unit>
+
+            <trans-unit id="label_cate">
+                <source>label_cate</source>
+                <target>Category</target>
+            </trans-unit>
+
+            <trans-unit id="label_actions">
+                <source>label_actions</source>
+                <target>Actions</target>
+            </trans-unit>
+
+
+             <trans-unit id="title_cate_list">
+                 <source>title_cate_list</source>
+                 <target>Category - list</target>
+             </trans-unit>
+
+             <trans-unit id="action_edit">
+                 <source>action_edit</source>
+                 <target>Edit</target>
+             </trans-unit>
+
+             <trans-unit id="action_delete">
+                 <source>action_delete</source>
+                 <target>Delete</target>
+             </trans-unit>
+
+             <trans-unit id="action_create">
+                 <source>action_create</source>
+                 <target>Create</target>
+             </trans-unit>
+
+
+
+        </body>
+    </file>
+</xliff>
