@@ -57,6 +57,47 @@
 
 
 
+             <trans-unit id="message_updated_successfully">
+                 <source>message_updated_successfully</source>
+                 <target>Success</target>
+             </trans-unit>
+
+             <trans-unit id="title_cate_create">
+                 <source>title_cate_create</source>
+                 <target>Create</target>
+             </trans-unit>
+
+             <trans-unit id="action_save">
+                 <source>action_save</source>
+                 <target>Save</target>
+             </trans-unit>
+
+             <trans-unit id="action_back_to_list">
+                 <source>action_back_to_list</source>
+                 <target>Back</target>
+             </trans-unit>
+
+             <trans-unit id="message_created_successfully">
+                 <source>message_created_successfully</source>
+                 <target>Success</target>
+             </trans-unit>
+
+             <trans-unit id="title_cate_edit">
+                 <source>title_cate_edit</source>
+                 <target>Edit</target>
+             </trans-unit>
+
+             <trans-unit id="title_delete_edit">
+                 <source>title_delete_edit</source>
+                 <target>Delete</target>
+             </trans-unit>
+
+             <trans-unit id="title_catc_list">
+                 <source>title_catc_list</source>
+                 <target>Categories</target>
+             </trans-unit>
+
+
         </body>
     </file>
 </xliff>

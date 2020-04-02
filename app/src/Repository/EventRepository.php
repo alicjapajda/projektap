@@ -81,5 +81,19 @@ class EventRepository extends ServiceEntityRepository
     }
 
 
+    /**
+     * Delete record.
+     *
+     * @param \App\Entity\Event $event Event entity
+     *
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function delete(Event $event): void
+    {
+        $this->_em->remove($event);
+        $this->_em->flush($event);
+    }
+
 
 }

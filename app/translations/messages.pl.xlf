@@ -21,7 +21,7 @@
 
             <trans-unit id="label_title">
                 <source>label_title</source>
-                <target>Kategoria</target>
+                <target>Tytuł</target>
             </trans-unit>
 
             <trans-unit id="label_cate">
@@ -95,6 +95,47 @@
                  <source>title_delete_edit</source>
                  <target>Usuń kategorię</target>
              </trans-unit>
+
+             <trans-unit id="title_catc_list">
+                 <source>title_catc_list</source>
+                 <target>Kategorie kontaktów</target>
+             </trans-unit>
+
+
+
+
+
+             <trans-unit id="cate.index">
+                 <source>cate.index</source>
+                 <target>Kategorie wydarzeń</target>
+             </trans-unit>
+
+             <trans-unit id="catc.index">
+                 <source>catc.index</source>
+                 <target>Kategorie kontaktów</target>
+             </trans-unit>
+
+             <trans-unit id="event.index">
+                 <source>event.index</source>
+                 <target>Wydarzenia</target>
+             </trans-unit>
+
+             <trans-unit id="contact.index">
+                 <source>contact.index</source>
+                 <target>Kontakty</target>
+             </trans-unit>
+
+             <trans-unit id="event_create">
+                 <source>event_create</source>
+                 <target>Twórz</target>
+             </trans-unit>
+
+             <trans-unit id="title_event_edit">
+                 <source>title_event_edit</source>
+                 <target>Edytuj wydarzenie</target>
+             </trans-unit>
+
+
 
 
 

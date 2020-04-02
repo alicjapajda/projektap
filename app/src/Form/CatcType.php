@@ -1,23 +1,20 @@
 <?php
 /**
- * Event type.
+ * Catc type.
  */
 
 namespace App\Form;
 
-use App\Entity\Cate;
-use App\Entity\Event;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use App\Entity\Catc;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 /**
- * Class EventType.
+ * Class CatcType.
  */
-class EventType extends AbstractType
+class CatcType extends AbstractType
 {
     /**
      * Builds the form.
@@ -25,10 +22,10 @@ class EventType extends AbstractType
      * This method is called for each type in the hierarchy starting from the
      * top most type. Type extensions can further modify the form.
      *
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder The form builder
+     * @param array $options The options
      * @see FormTypeExtensionInterface::buildForm()
      *
-     * @param \Symfony\Component\Form\FormBuilderInterface $builder The form builder
-     * @param array                                        $options The options
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -41,27 +38,6 @@ class EventType extends AbstractType
                 'attr' => ['max_length' => 64],
             ]
         );
-
-
-        $builder->add('date', DateType::class, [
-            'widget' => 'single_text',
-            // this is actually the default format for single_text
-            'format' => 'yyyy-MM-dd',
-        ]);
-
-        $builder->add(
-            'cate',
-            EntityType::class,
-            [
-                'class' => Cate::class,
-                'choice_label' => function ($cate) {
-                    return $cate->getTitle();
-                },
-                'label' => 'label_cate',
-                'placeholder' => 'label_none',
-                'required' => true,
-            ]
-        );
     }
 
     /**
@@ -71,7 +47,7 @@ class EventType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver): void
     {
-        $resolver->setDefaults(['data_class' => Event::class]);
+        $resolver->setDefaults(['data_class' => Catc::class]);
     }
 
     /**
@@ -84,6 +60,6 @@ class EventType extends AbstractType
      */
     public function getBlockPrefix(): string
     {
-        return 'event';
+        return 'catc';
     }
 }

@@ -26,9 +26,14 @@
                     <td>{{ event.title }}</td>
                     <td>{{ event.cate.title }}</td>
                     <td>
-
-                            {{ 'action_view'|trans }}
+                        <a href="{{ url('event_edit', {id: event.id}) }}" title="{{ 'event_edit'|trans }}">
+                            {{ 'action_edit'|trans }}
                         </a>
+                        <a href="{{ url('event_delete', {id: event.id}) }}" title="{{ 'event_delete'|trans }}">
+                            {{ 'action_delete'|trans }}
+                        </a>
+
+
                     </td>
                 </tr>
             {% endfor %}

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title_catc_edit'|trans({'%id%': catc.id|default('')}) }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title_catc_edit'|trans({'%id%': catc.id|default('')}) }}</h1>
+    {{ form_start(form, { method: 'PUT', action: url('catc_edit', {id: catc.id}) }) }}
+    {{ form_widget(form) }}
+    <div class="form-group row float-sm-right">
+        <input type="submit" value="{{ 'action_save'|trans }}" class="btn btn-primary" />
+    </div>
+    <div class="form-group row float-sm-left">
+        <a href="{{ url('catc_index') }}" class="btn btn-link">
+            {{ 'action_back_to_list'|trans }}
+        </a>
+    </div>
+    {{ form_end(form) }}
+{% endblock %}

@@ -1,13 +1,13 @@
 <?php
 /**
- * Event controller.
+ * Contact controller.
  */
 
 namespace App\Controller;
 
-use App\Entity\Event;
-use App\Form\EventType;
-use App\Repository\EventRepository;
+use App\Entity\Contact;
+use App\Form\ContactType;
+use App\Repository\ContactRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,17 +15,17 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * Class EventController.
+ * Class ContactController.
  *
- * @Route("/event")
+ * @Route("/contact")
  */
-class EventController extends AbstractController
+class ContactController extends AbstractController
 {
     /**
      * Index action.
      *
      * @param \Symfony\Component\HttpFoundation\Request $request HTTP request
-     * @param \App\Repository\EventRepository $eventRepository Event repository
+     * @param \App\Repository\ContactRepository $contactRepository Contact repository
      * @param \Knp\Component\Pager\PaginatorInterface $paginator Paginator
      *
      * @return \Symfony\Component\HttpFoundation\Response HTTP response
@@ -33,23 +33,22 @@ class EventController extends AbstractController
      * @Route(
      *     "/",
      *     methods={"GET"},
-     *     name="event_index",
+     *     name="contact_index",
      * )
      */
-    public function index(Request $request, EventRepository $eventRepository, PaginatorInterface $paginator): Response
+    public function index(Request $request, ContactRepository $contactRepository, PaginatorInterface $paginator): Response
     {
         $pagination = $paginator->paginate(
-            $eventRepository->queryAll(),
+            $contactRepository->queryAll(),
             $request->query->getInt('page', 1),
-            EventRepository::PAGINATOR_ITEMS_PER_PAGE
+            ContactRepository::PAGINATOR_ITEMS_PER_PAGE
         );
 
         return $this->render(
-            'event/index.html.twig',
+            'contact/index.html.twig',
             ['pagination' => $pagination]
         );
     }
-
 
 
 
@@ -57,7 +56,7 @@ class EventController extends AbstractController
      * Create action.
      *
      * @param \Symfony\Component\HttpFoundation\Request $request        HTTP request
-     * @param \App\Repository\EventRepository            $eventRepository Event repository
+     * @param \App\Repository\ContactRepository            $contactRepository Contact repository
      *
      * @return \Symfony\Component\HttpFoundation\Response HTTP response
      *
@@ -67,37 +66,37 @@ class EventController extends AbstractController
      * @Route(
      *     "/create",
      *     methods={"GET", "POST"},
-     *     name="event_create",
+     *     name="contact_create",
      * )
      */
-    public function create(Request $request, EventRepository $eventRepository): Response
+    public function create(Request $request, ContactRepository $contactRepository): Response
     {
-        $event = new Event();
-        $form = $this->createForm(EventType::class, $event);
+        $contact = new Contact();
+        $form = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $eventRepository->save($event);
+            $contact->setCreatedAt(new \DateTime());
+            $contactRepository->save($contact);
             $this->addFlash('success', 'message_created_successfully');
 
-            return $this->redirectToRoute('event_index');
+            return $this->redirectToRoute('contact_index');
         }
 
         return $this->render(
-            'event/create.html.twig',
+            'contact/create.html.twig',
             ['form' => $form->createView()]
         );
     }
 
 
 
-
     /**
-     * Edit action.
+     * Contact action.
      *
      * @param \Symfony\Component\HttpFoundation\Request $request HTTP request
-     * @param \App\Entity\Event $event Event entity
-     * @param \App\Repository\EventRepository $eventRepository Event repository
+     * @param \App\Entity\Contact $contact Contact entity
+     * @param \App\Repository\ContactRepository $contactRepository Contact repository
      *
      * @return \Symfony\Component\HttpFoundation\Response HTTP response
      *
@@ -108,27 +107,27 @@ class EventController extends AbstractController
      *     "/{id}/edit",
      *     methods={"GET", "PUT"},
      *     requirements={"id": "[1-9]\d*"},
-     *     name="event_edit",
+     *     name="contact_edit",
      * )
      */
-    public function edit(Request $request, Event $event, EventRepository $eventRepository): Response
+    public function edit(Request $request, Contact $contact, ContactRepository $contactRepository): Response
     {
-        $form = $this->createForm(EventType::class, $event, ['method' => 'PUT']);
+        $form = $this->createForm(ContactType::class, $contact, ['method' => 'PUT']);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $eventRepository->save($event);
+            $contactRepository->save($contact);
 
             $this->addFlash('success', 'message_updated_successfully');
 
-            return $this->redirectToRoute('event_index');
+            return $this->redirectToRoute('contact_index');
         }
 
         return $this->render(
-            'event/edit.html.twig',
+            'contact/edit.html.twig',
             [
                 'form' => $form->createView(),
-                'event' => $event,
+                'contact' => $contact,
             ]
         );
     }
@@ -138,8 +137,8 @@ class EventController extends AbstractController
      * Delete action.
      *
      * @param \Symfony\Component\HttpFoundation\Request $request            HTTP request
-     * @param \App\Entity\Event                    $event           Event entity
-     * @param \App\Repository\EventRepository        $eventRepository Event repository
+     * @param \App\Entity\Contact                    $contact           Contact entity
+     * @param \App\Repository\ContactRepository        $contactRepository Contact repository
      *
      * @return \Symfony\Component\HttpFoundation\Response HTTP response
      *
@@ -150,12 +149,12 @@ class EventController extends AbstractController
      *     "/{id}/delete",
      *     methods={"GET", "DELETE"},
      *     requirements={"id": "[1-9]\d*"},
-     *     name="event_delete",
+     *     name="contact_delete",
      * )
      */
-    public function delete(Request $request, Event $event, EventRepository $eventRepository): Response
+    public function delete(Request $request, Contact $contact, ContactRepository $contactRepository): Response
     {
-        $form = $this->createForm(EventType::class, $event, ['method' => 'DELETE']);
+        $form = $this->createForm(ContactType::class, $contact, ['method' => 'DELETE']);
         $form->handleRequest($request);
 
         if ($request->isMethod('DELETE') && !$form->isSubmitted()) {
@@ -163,20 +162,21 @@ class EventController extends AbstractController
         }
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $eventRepository->delete($event);
+            $contactRepository->delete($contact);
             $this->addFlash('success', 'message.deleted_successfully');
 
-            return $this->redirectToRoute('event_index');
+            return $this->redirectToRoute('contact_index');
         }
 
         return $this->render(
-            'event/delete.html.twig',
+            'contact/delete.html.twig',
             [
                 'form' => $form->createView(),
-                'event' => $event,
+                'contact' => $contact,
             ]
         );
     }
+
 
 
 }

@@ -1,12 +1,20 @@
 <?php
+/**
+ * Contact repository.
+ */
 
 namespace App\Repository;
 
 use App\Entity\Contact;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\ORM\QueryBuilder;
+
+
 
 /**
+ * Class ContactRepository.
+ *
  * @method Contact|null find($id, $lockMode = null, $lockVersion = null)
  * @method Contact|null findOneBy(array $criteria, array $orderBy = null)
  * @method Contact[]    findAll()
@@ -14,37 +22,77 @@ use Doctrine\Common\Persistence\ManagerRegistry;
  */
 class ContactRepository extends ServiceEntityRepository
 {
+    /**
+     * Items per page.
+     *
+     * Use constants to define configuration options that rarely change instead
+     * of specifying them in app/config/config.yml.
+     * See https://symfony.com/doc/current/best_practices.html#configuration
+     *
+     * @constant int
+     */
+    const PAGINATOR_ITEMS_PER_PAGE = 3;
+
+    /**
+     * ContactRepository constructor.
+     *
+     * @param \Doctrine\Common\Persistence\ManagerRegistry $registry Manager registry
+     */
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Contact::class);
     }
 
-    // /**
-    //  * @return Contact[] Returns an array of Contact objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * Query all records.
+     *
+     * @return \Doctrine\ORM\QueryBuilder Query builder
+     */
+    public function queryAll(): QueryBuilder
     {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+        return $this->getOrCreateQueryBuilder()
+            ->orderBy('c.name', 'DESC');
     }
-    */
 
-    /*
-    public function findOneBySomeField($value): ?Contact
+    /**
+     * Get or create new query builder.
+     *
+     * @param \Doctrine\ORM\QueryBuilder|null $queryBuilder Query builder
+     *
+     * @return \Doctrine\ORM\QueryBuilder Query builder
+     */
+    private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
     {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        return $queryBuilder ?? $this->createQueryBuilder('c');
     }
-    */
+
+    /**
+     * Save record.
+     *
+     * @param \App\Entity\Contact $contact Contact entity
+     *
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function save(Contact $contact): void
+    {
+        $this->_em->persist($contact);
+        $this->_em->flush($contact);
+    }
+
+
+    /**
+     * Delete record.
+     *
+     * @param \App\Entity\Contact $contact Contact entity
+     *
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function delete(Contact $contact): void
+    {
+        $this->_em->remove($contact);
+        $this->_em->flush($contact);
+    }
+
 }

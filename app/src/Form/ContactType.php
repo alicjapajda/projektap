@@ -5,19 +5,18 @@
 
 namespace App\Form;
 
-use App\Entity\Cate;
-use App\Entity\Event;
+use App\Entity\Catc;
+use App\Entity\Contact;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 /**
- * Class EventType.
+ * Class ContactType.
  */
-class EventType extends AbstractType
+class ContactType extends AbstractType
 {
     /**
      * Builds the form.
@@ -33,31 +32,48 @@ class EventType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder->add(
-            'title',
+            'name',
             TextType::class,
             [
-                'label' => 'label_title',
+                'label' => 'label_name',
                 'required' => true,
                 'attr' => ['max_length' => 64],
             ]
         );
 
 
-        $builder->add('date', DateType::class, [
-            'widget' => 'single_text',
-            // this is actually the default format for single_text
-            'format' => 'yyyy-MM-dd',
-        ]);
+        $builder->add(
+            'tel',
+            TextType::class,
+            [
+                'label' => 'label_tel',
+                'required' => true,
+                'attr' => ['max_length' => 64],
+            ]
+        );
+
 
         $builder->add(
-            'cate',
+            'mail',
+            TextType::class,
+            [
+                'label' => 'label_mail',
+                'required' => true,
+                'attr' => ['max_length' => 64],
+            ]
+        );
+
+
+
+        $builder->add(
+            'catc',
             EntityType::class,
             [
-                'class' => Cate::class,
-                'choice_label' => function ($cate) {
-                    return $cate->getTitle();
+                'class' => Catc::class,
+                'choice_label' => function ($catc) {
+                    return $catc->getTitle();
                 },
-                'label' => 'label_cate',
+                'label' => 'label_catc',
                 'placeholder' => 'label_none',
                 'required' => true,
             ]
@@ -71,7 +87,7 @@ class EventType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver): void
     {
-        $resolver->setDefaults(['data_class' => Event::class]);
+        $resolver->setDefaults(['data_class' => Contact::class]);
     }
 
     /**
@@ -84,6 +100,6 @@ class EventType extends AbstractType
      */
     public function getBlockPrefix(): string
     {
-        return 'event';
+        return 'contact';
     }
 }

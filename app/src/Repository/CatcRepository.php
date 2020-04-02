@@ -65,4 +65,32 @@ class CatcRepository extends ServiceEntityRepository
     {
         return $queryBuilder ?? $this->createQueryBuilder('c');
     }
+    /**
+     * Save record.
+     *
+     * @param \App\Entity\Catc $catc Catc entity
+     *
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function save(Catc $catc): void
+    {
+        $this->_em->persist($catc);
+        $this->_em->flush($catc);
+    }
+
+    /**
+     * Delete record.
+     *
+     * @param \App\Entity\Catc $catc Catc entity
+     *
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function delete(Catc $catc): void
+    {
+        $this->_em->remove($catc);
+        $this->_em->flush($catc);
+    }
+
 }

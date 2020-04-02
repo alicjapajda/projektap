@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 {% block title %}
-    {{ 'title_catc_list'|trans }}
+    {{ 'title_contact_list'|trans }}
 {% endblock %}
 {% block body %}
-    <h1>{{ 'title_catc_list'|trans }}</h1>
+    <h1>{{ 'title_contact_list'|trans }}</h1>
     {% if pagination is defined and pagination.items|length %}
         <div class="navigation text-center">
             {{ knp_pagination_render(pagination) }}
@@ -12,52 +12,57 @@
             <thead>
             <tr>
                 <th>{{ knp_pagination_sortable(pagination, 'label_id'|trans, 'c.id') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label_title'|trans, 'c.title') }}</th>
-
+                <th>{{ knp_pagination_sortable(pagination, 'label_name'|trans, 'c.name') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label_tel'|trans, 'c.tel') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label_mail'|trans, 'c.mail') }}</th>
+                <th>{{ 'label_catc'|trans }}</th>
                 <th>{{ 'label_actions'|trans }}</th>
             </tr>
             </thead>
             <tbody>
-            {% for catc in pagination.items %}
+            {% for contact in pagination.items %}
                 <tr>
-                    <td>{{ catc.id }}</td>
+                    <td>{{ contact.id }}</td>
+                    <td>{{ contact.name }}</td>
+                    <td>{{ contact.tel }}</td>
+                    <td>{{ contact.mail }}</td>
+                    <td>{{ contact.catc.title }}</td>
 
-                    <td>{{ catc.title }}</td>
                     <td>
-                        <a href="{{ url('catc_edit', {id: catc.id}) }}" title="{{ 'catc_edit'|trans }}">
+                        <a href="{{ url('contact_edit', {id: contact.id}) }}" title="{{ 'contact_edit'|trans }}">
                             {{ 'action_edit'|trans }}
                         </a>
 
-                        <a href="{{ url('catc_delete', {id: catc.id}) }}" title="{{ 'catc_delete'|trans }}">
+                        <a href="{{ url('contact_delete', {id: contact.id}) }}" title="{{ 'contact_delete'|trans }}">
                             {{ 'action_delete'|trans }}
                         </a>
 
 
                     </td>
+
                 </tr>
             {% endfor %}
             </tbody>
         </table>
 
 
-
-        <div>   <a href="{{ url('catc_create')}}" >
+        <div>   <a href="{{ url('contact_create')}}" >
                 {{ 'action_create'|trans }}
             </a></div>
-
-
 
 
 
         <div class="navigation text-center">
             {{ knp_pagination_render(pagination) }}
         </div>
+
+
     {% else %}
         <p>
             {{ 'message_empty_list'|trans }}
         </p>
 
-        <div>   <a href="{{ url('catc_create')}}" >
+        <div>   <a href="{{ url('contact_create')}}" >
                 {{ 'action_create'|trans }}
             </a></div>
 
