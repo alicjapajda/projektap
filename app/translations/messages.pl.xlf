@@ -136,6 +136,142 @@
              </trans-unit>
 
 
+             <trans-unit id="title_contact_list">
+                 <source>title_contact_list</source>
+                 <target>Kontakty</target>
+             </trans-unit>
+
+             <trans-unit id="label_name">
+                 <source>label_name</source>
+                 <target>Nazwa</target>
+             </trans-unit>
+
+             <trans-unit id="label_tel">
+                 <source>label_tel</source>
+                 <target>Tel</target>
+             </trans-unit>
+
+             <trans-unit id="label_mail">
+                 <source>label_mail</source>
+                 <target>Mail</target>
+             </trans-unit>
+
+             <trans-unit id="label_catc">
+                 <source>label_catc</source>
+                 <target>Kategoria</target>
+             </trans-unit>
+
+             <trans-unit id="title_contact_create">
+                 <source>title_contact_create</source>
+                 <target>Twórz nowy kontakt</target>
+             </trans-unit>
+
+             <trans-unit id="title_catc_create">
+                 <source>title_catc_create</source>
+                 <target>Twórz nową ktegorię</target>
+             </trans-unit>
+
+             <trans-unit id="title_event_create">
+                 <source>title_event_create</source>
+                 <target>Twórz nowe wydarzenie</target>
+             </trans-unit>
+
+                          <trans-unit id="title_event_delete">
+                              <source>title_event_delete</source>
+                              <target>Usuń wydarzenie</target>
+                          </trans-unit>
+
+                          <trans-unit id="event_edit">
+                              <source>event_edit</source>
+                              <target>Edytuj</target>
+                          </trans-unit>
+
+                          <trans-unit id="event_delete">
+                              <source>event_delete</source>
+                              <target>Usuń</target>
+                          </trans-unit>
+
+                          <trans-unit id="contact_delete">
+                              <source>contact_delete</source>
+                              <target>Usuń</target>
+                          </trans-unit>
+
+                          <trans-unit id="contact_edit">
+                              <source>contact_edit</source>
+                              <target>Edytuj</target>
+                          </trans-unit>
+
+                          <trans-unit id="cate_delete">
+                              <source>cate_delete</source>
+                              <target>Usuń</target>
+                          </trans-unit>
+
+                          <trans-unit id="cate_edit">
+                              <source>cate_edit</source>
+                              <target>Edytuj</target>
+                          </trans-unit>
+
+                          <trans-unit id="catc_delete">
+                              <source>catc_delete</source>
+                              <target>Usuń</target>
+                          </trans-unit>
+
+                          <trans-unit id="catc_edit">
+                              <source>catc_edit</source>
+                              <target>Edytuj</target>
+                          </trans-unit>
+
+                            <trans-unit id="title_catc_delete">
+                                <source>title_catc_delete</source>
+                                <target>Usuń kategorię</target>
+                            </trans-unit>
+
+                            <trans-unit id="title_catc_edit">
+                                <source>title_catc_edit</source>
+                                <target>Edytuj kategorię</target>
+                            </trans-unit>
+
+                            <trans-unit id="title_contact_delete">
+                                <source>title_contact_delete</source>
+                                <target>Usuń kontakt</target>
+                            </trans-unit>
+
+
+
+                          <trans-unit id="message_empty_list">
+                              <source>message_empty_list</source>
+                              <target>Pusta lista</target>
+                          </trans-unit>
+
+                          <trans-unit id="title_cate_details">
+                              <source>title_cate_details</source>
+                              <target>Szczegóły</target>
+                          </trans-unit>
+
+                          <trans-unit id="message_item_not_found">
+                              <source>message_item_not_found</source>
+                              <target>nie znaleziono</target>
+                          </trans-unit>
+
+                          <trans-unit id="title_cate_delete">
+                              <source>title_cate_delete</source>
+                              <target>Usuń kategorię</target>
+                          </trans-unit>
+
+                          <trans-unit id="cate_show">
+                              <source>cate_show</source>
+                              <target>Szczegóły</target>
+                          </trans-unit>
+
+                            <trans-unit id="action_show">
+                                <source>action_show</source>
+                                <target>Szczegóły</target>
+                            </trans-unit>
+
+                            <trans-unit id="title_contact_edit">
+                                <source>title_contact_edit</source>
+                                <target>Edytuj kontakt</target>
+                            </trans-unit>
 
 
 

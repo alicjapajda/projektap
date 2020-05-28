@@ -5,24 +5,32 @@
 {% block body %}
     <h1>{{ 'title_event_list'|trans }}</h1>
     {% if pagination is defined and pagination.items|length %}
+
+
+
         <div class="navigation text-center">
             {{ knp_pagination_render(pagination) }}
         </div>
+
+
+
+
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>{{ knp_pagination_sortable(pagination, 'label_id'|trans, 't.id') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label_date'|trans, 't.date') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label_title'|trans, 't.title') }}</th>
+
+                <th>{{ knp_pagination_sortable(pagination, 'label_date'|trans, 'e.date') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label_title'|trans, 'e.title') }}</th>
                 <th>{{ 'label_cate'|trans }}</th>
                 <th>{{ 'label_actions'|trans }}</th>
             </tr>
             </thead>
             <tbody>
             {% for event in pagination.items %}
+
                 <tr>
-                    <td>{{ event.id }}</td>
-                    <td>{{ event.date |format_date('long') }}</td>
+
+                    <td>{{ event.date |date('d/m/y') }}</td>
                     <td>{{ event.title }}</td>
                     <td>{{ event.cate.title }}</td>
                     <td>
@@ -33,12 +41,14 @@
                             {{ 'action_delete'|trans }}
                         </a>
 
-
                     </td>
                 </tr>
+
             {% endfor %}
             </tbody>
         </table>
+
+
 
 
         <div>   <a href="{{ url('event_create')}}" >
@@ -51,9 +61,15 @@
         <div class="navigation text-center">
             {{ knp_pagination_render(pagination) }}
         </div>
+
+
     {% else %}
         <p>
             {{ 'message_empty_list'|trans }}
         </p>
+        <div>   <a href="{{ url('event_create')}}" >
+                {{ 'event_create'|trans }}
+            </a></div>
+
     {% endif %}
 {% endblock %}

@@ -31,7 +31,7 @@ class EventRepository extends ServiceEntityRepository
      *
      * @constant int
      */
-    const PAGINATOR_ITEMS_PER_PAGE = 3;
+    const PAGINATOR_ITEMS_PER_PAGE = 6;
 
     /**
      * EventRepository constructor.
@@ -51,7 +51,9 @@ class EventRepository extends ServiceEntityRepository
     public function queryAll(): QueryBuilder
     {
         return $this->getOrCreateQueryBuilder()
-            ->orderBy('c.date', 'DESC');
+            ->andWhere('e.date >= :date')
+            ->setParameter('date', new \DateTime('1 day ago'))
+            ->orderBy('e.date', 'DESC');
     }
 
     /**
@@ -63,7 +65,7 @@ class EventRepository extends ServiceEntityRepository
      */
     private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
     {
-        return $queryBuilder ?? $this->createQueryBuilder('c');
+        return $queryBuilder ?? $this->createQueryBuilder('e');
     }
 
     /**
@@ -94,6 +96,22 @@ class EventRepository extends ServiceEntityRepository
         $this->_em->remove($event);
         $this->_em->flush($event);
     }
+
+
+
+    /**
+     * Query by cate
+     * @param null $cate
+     * @param \App\Entity\Event $event Event entity
+     * @return \Doctrine\ORM\QueryBuilder Query builder
+     *
+     */
+    public function queryLikeCate(?string $cate): QueryBuilder{
+        if (null === $cate) { return $this->queryAll();}
+        return $this->queryAll()
+            ->join('event.cate', 'c')
+            ->andWhere('c.title LIKE :var')
+            ->setParameter('var', '%'.$cate.'%'); }
 
 
 }

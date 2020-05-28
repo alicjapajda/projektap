@@ -98,6 +98,193 @@
              </trans-unit>
 
 
+
+
+
+             <trans-unit id="cate.index">
+                 <source>cate.index</source>
+                 <target>Categories - events </target>
+             </trans-unit>
+
+             <trans-unit id="catc.index">
+                 <source>catc.index</source>
+                 <target>Categories - contacts </target>
+             </trans-unit>
+
+             <trans-unit id="event.index">
+                 <source>event.index</source>
+                 <target>Events</target>
+             </trans-unit>
+
+             <trans-unit id="contact.index">
+                 <source>contact.index</source>
+                 <target>Contacts</target>
+             </trans-unit>
+
+             <trans-unit id="event_create">
+                 <source>event_create</source>
+                 <target>Create</target>
+             </trans-unit>
+
+             <trans-unit id="title_event_edit">
+                 <source>title_event_edit</source>
+                 <target>Edit</target>
+             </trans-unit>
+
+
+
+
+
+
+             <trans-unit id="title_contact_list">
+                 <source>title_contact_list</source>
+                 <target>Contacts</target>
+             </trans-unit>
+
+             <trans-unit id="label_name">
+                 <source>label_name</source>
+                 <target>Name</target>
+             </trans-unit>
+
+             <trans-unit id="label_tel">
+                 <source>label_tel</source>
+                 <target>Tel</target>
+             </trans-unit>
+
+             <trans-unit id="label_mail">
+                 <source>label_mail</source>
+                 <target>Mail</target>
+             </trans-unit>
+
+             <trans-unit id="label_catc">
+                 <source>label_catc</source>
+                 <target>Category</target>
+             </trans-unit>
+
+             <trans-unit id="title_contact_create">
+                 <source>title_contact_create</source>
+                 <target>Create new contact</target>
+             </trans-unit>
+
+             <trans-unit id="title_catc_create">
+                 <source>title_catc_create</source>
+                 <target>Create new category</target>
+             </trans-unit>
+
+             <trans-unit id="title_event_create">
+                 <source>title_event_create</source>
+                 <target>Create new event</target>
+             </trans-unit>
+
+
+                          <trans-unit id="title_event_delete">
+                              <source>title_event_delete</source>
+                              <target>Delete event</target>
+                          </trans-unit>
+
+                          <trans-unit id="event_edit">
+                              <source>event_edit</source>
+                              <target>Edit</target>
+                          </trans-unit>
+
+                          <trans-unit id="event_delete">
+                              <source>event_delete</source>
+                              <target>Delete</target>
+                          </trans-unit>
+
+
+
+                          <trans-unit id="contact_delete">
+                              <source>contact_delete</source>
+                              <target>Delete</target>
+                          </trans-unit>
+
+                          <trans-unit id="contact_edit">
+                              <source>contact_edit</source>
+                              <target>Edit</target>
+                          </trans-unit>
+
+
+
+
+                          <trans-unit id="cate_delete">
+                              <source>cate_delete</source>
+                              <target>Delete</target>
+                          </trans-unit>
+
+                          <trans-unit id="cate_edit">
+                              <source>cate_edit</source>
+                              <target>Edit</target>
+                          </trans-unit>
+
+                          <trans-unit id="catc_delete">
+                              <source>catc_delete</source>
+                              <target>Delete</target>
+                          </trans-unit>
+
+                          <trans-unit id="catc_edit">
+                              <source>catc_edit</source>
+                              <target>Edit</target>
+                          </trans-unit>
+
+
+
+                            <trans-unit id="title_catc_delete">
+                                <source>title_catc_delete</source>
+                                <target>Delete category</target>
+                            </trans-unit>
+
+                            <trans-unit id="title_catc_edit">
+                                <source>title_catc_edit</source>
+                                <target>Edit category</target>
+                            </trans-unit>
+
+                            <trans-unit id="title_contact_delete">
+                                <source>title_contact_delete</source>
+                                <target>Delete contact</target>
+                            </trans-unit>
+
+
+
+
+
+
+
+                          <trans-unit id="message_empty_list">
+                              <source>message_empty_list</source>
+                              <target>Empty list</target>
+                          </trans-unit>
+
+                          <trans-unit id="title_cate_details">
+                              <source>title_cate_details</source>
+                              <target>Detiles</target>
+                          </trans-unit>
+
+                          <trans-unit id="message_item_not_found">
+                              <source>message_item_not_found</source>
+                              <target>item not found</target>
+                          </trans-unit>
+
+                          <trans-unit id="title_cate_delete">
+                              <source>title_cate_delete</source>
+                              <target>Delete category</target>
+                          </trans-unit>
+
+                          <trans-unit id="cate_show">
+                              <source>cate_show</source>
+                              <target>Show</target>
+                          </trans-unit>
+
+                            <trans-unit id="action_show">
+                                <source>action_show</source>
+                                <target>Show</target>
+                            </trans-unit>
+
+                            <trans-unit id="title_contact_edit">
+                                <source>title_contact_edit</source>
+                                <target>Edit contact</target>
+                            </trans-unit>
+
         </body>
     </file>
 </xliff>

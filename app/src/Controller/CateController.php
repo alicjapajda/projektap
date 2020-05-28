@@ -178,6 +178,12 @@ class CateController extends AbstractController
      */
     public function delete(Request $request, Cate $cate, CateRepository $cateRepository): Response
     {
+
+        if ($cate->getEvent()->count()) {
+            $this->addFlash('warning', 'message_category_contains_events');
+
+            return $this->redirectToRoute('cate_index');
+        }
         $form = $this->createForm(CateType::class, $cate, ['method' => 'DELETE']);
         $form->handleRequest($request);
 

@@ -11,7 +11,7 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>{{ knp_pagination_sortable(pagination, 'label_id'|trans, 'c.id') }}</th>
+
                 <th>{{ knp_pagination_sortable(pagination, 'label_name'|trans, 'c.name') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label_tel'|trans, 'c.tel') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label_mail'|trans, 'c.mail') }}</th>
@@ -22,7 +22,7 @@
             <tbody>
             {% for contact in pagination.items %}
                 <tr>
-                    <td>{{ contact.id }}</td>
+
                     <td>{{ contact.name }}</td>
                     <td>{{ contact.tel }}</td>
                     <td>{{ contact.mail }}</td>

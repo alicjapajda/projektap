@@ -1,26 +1,23 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    {{ 'title_event_details'|trans({'%id%': event.id|default('')}) }}
+    {{ 'title_cate_details'|trans({'%id%': cate.id|default('')}) }}
 {% endblock %}
 
 {% block body %}
-    <h1>{{ 'title_event_details'|trans({'%id%': event.id|default('')}) }}</h1>
-    {% if event is defined and event|length %}
+    <h1>{{ 'title_cate_details'|trans({'%id%': cate.id|default('')}) }}</h1>
+    {% if cate is defined and cate|length %}
         <dl class="dl-horizontal">
             <dt>{{ 'label_id'|trans }}</dt>
-            <dd>{{ event.id }}</dd>
-            <dt>{{ 'label_created_at'|trans }}</dt>
-            <dd>{{ event.createdAt|format_date('long') }}</dd>
-            <dt>{{ 'label_updated_at'|trans }}</dt>
-            <dd>{{ event.updatedAt|format_date('long') }}</dd>
-            <dt>{{ 'label_cate'|trans }}</dt>
-            <dd>{{  event.cate.title }}</dd>
+            <dd>{{ cate.id }}</dd>
             <dt>{{ 'label_title'|trans }}</dt>
-            <dd>{{  event.title }}</dd>
+            <dd>{{  cate.title }}</dd>
+
         </dl>
+
+
         <p>
-            <a href="{{ url('event_index') }}" title="{{ 'action_back_to_list'|trans }}">
+            <a href="{{ url('cate_index') }}" title="{{ 'action_back_to_list'|trans }}">
                 {{ 'action_back_to_list'|trans }}
             </a>
         </p>

@@ -11,7 +11,7 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>{{ knp_pagination_sortable(pagination, 'label_id'|trans, 'c.id') }}</th>
+
                 <th>{{ knp_pagination_sortable(pagination, 'label_title'|trans, 'c.title') }}</th>
 
                 <th>{{ 'label_actions'|trans }}</th>
@@ -20,18 +20,18 @@
             <tbody>
             {% for catc in pagination.items %}
                 <tr>
-                    <td>{{ catc.id }}</td>
+
 
                     <td>{{ catc.title }}</td>
                     <td>
                         <a href="{{ url('catc_edit', {id: catc.id}) }}" title="{{ 'catc_edit'|trans }}">
                             {{ 'action_edit'|trans }}
                         </a>
-
+                        {% if not catc.contact|length %}
                         <a href="{{ url('catc_delete', {id: catc.id}) }}" title="{{ 'catc_delete'|trans }}">
                             {{ 'action_delete'|trans }}
                         </a>
-
+                        {% endif %}
 
                     </td>
                 </tr>
