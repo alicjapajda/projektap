@@ -5,6 +5,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Cate;
 use App\Entity\Event;
 use App\Form\EventType;
 use App\Repository\EventRepository;
@@ -13,6 +14,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+
 
 /**
  * Class EventController.
@@ -40,14 +42,17 @@ class EventController extends AbstractController
     {
 
         $pagination = $paginator->paginate(
-            $eventRepository->queryAll(),
+            $eventRepository->queryLikeCate($request->get('event_cate')),
             $request->query->getInt('page', 1),
             EventRepository::PAGINATOR_ITEMS_PER_PAGE
         );
 
         return $this->render(
             'event/index.html.twig',
-            ['pagination' => $pagination]
+                ['pagination' => $pagination,
+                'event_cate' => $request->get('event_cate'),
+
+            ]
         );
     }
 

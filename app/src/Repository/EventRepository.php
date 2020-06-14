@@ -9,6 +9,7 @@ use App\Entity\Event;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\ORM\QueryBuilder;
+use Knp\Component\Pager\PaginatorInterface;
 
 
 
@@ -109,9 +110,10 @@ class EventRepository extends ServiceEntityRepository
     public function queryLikeCate(?string $cate): QueryBuilder{
         if (null === $cate) { return $this->queryAll();}
         return $this->queryAll()
-            ->join('event.cate', 'c')
+            ->join('e.cate', 'c')
             ->andWhere('c.title LIKE :var')
             ->setParameter('var', '%'.$cate.'%'); }
+
 
 
 }

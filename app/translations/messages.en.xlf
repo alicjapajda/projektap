@@ -285,6 +285,21 @@
                                 <target>Edit contact</target>
                             </trans-unit>
 
+                            <trans-unit id="title_event_contact">
+                                <source>title_event_contact</source>
+                                <target>Contact</target>
+                            </trans-unit>
+
+                            <trans-unit id="cate_filter">
+                                <source>cate_filter</source>
+                                <target>Filter</target>
+                            </trans-unit>
+
+                            <trans-unit id="filter">
+                                <source>filter</source>
+                                <target>Filter</target>
+                            </trans-unit>
+
         </body>
     </file>
 </xliff>

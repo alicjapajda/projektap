@@ -273,7 +273,15 @@
                                 <target>Edytuj kontakt</target>
                             </trans-unit>
 
+                            <trans-unit id="cate_filter">
+                                <source>cate_filter</source>
+                                <target>Filtruj kategorie</target>
+                            </trans-unit>
 
+                            <trans-unit id="filter">
+                                <source>filter</source>
+                                <target>Filtruj</target>
+                            </trans-unit>
 
         </body>
     </file>
