@@ -1,9 +1,11 @@
 <?php
+/**
+ * Event Entity.
+ */
 
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\EventRepository")
@@ -33,16 +35,27 @@ class Event
      */
     private $cate;
 
+    /**
+     * @return int|null
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @return string|null
+     */
     public function getTitle(): ?string
     {
         return $this->title;
     }
 
+    /**
+     * @param string $title
+     *
+     * @return Event
+     */
     public function setTitle(string $title): self
     {
         $this->title = $title;
@@ -50,11 +63,19 @@ class Event
         return $this;
     }
 
+    /**
+     * @return \DateTimeInterface|null
+     */
     public function getDate(): ?\DateTimeInterface
     {
         return $this->date;
     }
 
+    /**
+     * @param \DateTimeInterface $date
+     *
+     * @return Event
+     */
     public function setDate(\DateTimeInterface $date): self
     {
         $this->date = $date;
@@ -62,11 +83,19 @@ class Event
         return $this;
     }
 
+    /**
+     * @return Cate|null
+     */
     public function getCate(): ?Cate
     {
         return $this->cate;
     }
 
+    /**
+     * @param Cate|null $cate
+     *
+     * @return Event
+     */
     public function setCate(?Cate $cate): self
     {
         $this->cate = $cate;

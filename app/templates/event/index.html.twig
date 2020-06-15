@@ -5,6 +5,8 @@
 {% block body %}
     <h1>{{ 'title_event_list'|trans }}</h1>
 
+
+
     <div> <form action="{{ path('event_index') }}" method="get">
             <label for="event_cate">{{ 'cate_filter'|trans }}</label>
             <input name="event_cate" type="text">

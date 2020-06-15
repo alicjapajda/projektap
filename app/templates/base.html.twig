@@ -20,10 +20,12 @@
         {% endfor %}
 
 
+
     <div> <a href="{{ url('cate_index') }}">{{ 'cate.index'|trans }}</a>
         <a href="{{ url('event_index') }}">{{ 'event.index'|trans }}</a>
         <a href="{{ url('catc_index') }}">{{ 'catc.index'|trans }}</a>
         <a href="{{ url('contact_index') }}">{{ 'contact.index'|trans }}</a>
+        <a href="{{ path('security_logout') }}">Logout</a>
     </div>
 
 

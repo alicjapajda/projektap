@@ -9,9 +9,6 @@ use App\Entity\Event;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\ORM\QueryBuilder;
-use Knp\Component\Pager\PaginatorInterface;
-
-
 
 /**
  * Class CateRepository.
@@ -58,18 +55,6 @@ class EventRepository extends ServiceEntityRepository
     }
 
     /**
-     * Get or create new query builder.
-     *
-     * @param \Doctrine\ORM\QueryBuilder|null $queryBuilder Query builder
-     *
-     * @return \Doctrine\ORM\QueryBuilder Query builder
-     */
-    private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
-    {
-        return $queryBuilder ?? $this->createQueryBuilder('e');
-    }
-
-    /**
      * Save record.
      *
      * @param \App\Entity\Event $event Event entity
@@ -82,7 +67,6 @@ class EventRepository extends ServiceEntityRepository
         $this->_em->persist($event);
         $this->_em->flush($event);
     }
-
 
     /**
      * Delete record.
@@ -98,22 +82,32 @@ class EventRepository extends ServiceEntityRepository
         $this->_em->flush($event);
     }
 
-
-
     /**
-     * Query by cate
-     * @param null $cate
-     * @param \App\Entity\Event $event Event entity
-     * @return \Doctrine\ORM\QueryBuilder Query builder
+     * @param string|null $cate
      *
+     * @return QueryBuilder
      */
-    public function queryLikeCate(?string $cate): QueryBuilder{
-        if (null === $cate) { return $this->queryAll();}
+    public function queryLikeCate(?string $cate): QueryBuilder
+    {
+        if (null === $cate) {
+            return $this->queryAll();
+        }
+
         return $this->queryAll()
             ->join('e.cate', 'c')
             ->andWhere('c.title LIKE :var')
-            ->setParameter('var', '%'.$cate.'%'); }
+            ->setParameter('var', '%'.$cate.'%');
+    }
 
-
-
+    /**
+     * Get or create new query builder.
+     *
+     * @param \Doctrine\ORM\QueryBuilder|null $queryBuilder Query builder
+     *
+     * @return \Doctrine\ORM\QueryBuilder Query builder
+     */
+    private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
+    {
+        return $queryBuilder ?? $this->createQueryBuilder('e');
+    }
 }

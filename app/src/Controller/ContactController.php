@@ -24,9 +24,9 @@ class ContactController extends AbstractController
     /**
      * Index action.
      *
-     * @param \Symfony\Component\HttpFoundation\Request $request HTTP request
-     * @param \App\Repository\ContactRepository $contactRepository Contact repository
-     * @param \Knp\Component\Pager\PaginatorInterface $paginator Paginator
+     * @param \Symfony\Component\HttpFoundation\Request $request           HTTP request
+     * @param \App\Repository\ContactRepository         $contactRepository Contact repository
+     * @param \Knp\Component\Pager\PaginatorInterface   $paginator         Paginator
      *
      * @return \Symfony\Component\HttpFoundation\Response HTTP response
      *
@@ -50,13 +50,11 @@ class ContactController extends AbstractController
         );
     }
 
-
-
     /**
      * Create action.
      *
-     * @param \Symfony\Component\HttpFoundation\Request $request        HTTP request
-     * @param \App\Repository\ContactRepository            $contactRepository Contact repository
+     * @param \Symfony\Component\HttpFoundation\Request $request           HTTP request
+     * @param \App\Repository\ContactRepository         $contactRepository Contact repository
      *
      * @return \Symfony\Component\HttpFoundation\Response HTTP response
      *
@@ -89,14 +87,12 @@ class ContactController extends AbstractController
         );
     }
 
-
-
     /**
      * Contact action.
      *
-     * @param \Symfony\Component\HttpFoundation\Request $request HTTP request
-     * @param \App\Entity\Contact $contact Contact entity
-     * @param \App\Repository\ContactRepository $contactRepository Contact repository
+     * @param \Symfony\Component\HttpFoundation\Request $request           HTTP request
+     * @param \App\Entity\Contact                       $contact           Contact entity
+     * @param \App\Repository\ContactRepository         $contactRepository Contact repository
      *
      * @return \Symfony\Component\HttpFoundation\Response HTTP response
      *
@@ -132,13 +128,12 @@ class ContactController extends AbstractController
         );
     }
 
-
     /**
      * Delete action.
      *
-     * @param \Symfony\Component\HttpFoundation\Request $request            HTTP request
-     * @param \App\Entity\Contact                    $contact           Contact entity
-     * @param \App\Repository\ContactRepository        $contactRepository Contact repository
+     * @param \Symfony\Component\HttpFoundation\Request $request           HTTP request
+     * @param \App\Entity\Contact                       $contact           Contact entity
+     * @param \App\Repository\ContactRepository         $contactRepository Contact repository
      *
      * @return \Symfony\Component\HttpFoundation\Response HTTP response
      *
@@ -176,7 +171,4 @@ class ContactController extends AbstractController
             ]
         );
     }
-
-
-
 }

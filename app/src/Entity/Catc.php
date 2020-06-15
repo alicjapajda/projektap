@@ -1,4 +1,7 @@
 <?php
+/**
+ * Catc Entity.
+ */
 
 namespace App\Entity;
 
@@ -38,21 +41,35 @@ class Catc
      */
     private $contact;
 
+    /**
+     * Catc constructor.
+     */
     public function __construct()
     {
         $this->contact = new ArrayCollection();
     }
 
+    /**
+     * @return int|null
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @return \DateTimeInterface|null
+     */
     public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->createdAt;
     }
 
+    /**
+     * @param \DateTimeInterface $createdAt
+     *
+     * @return Catc
+     */
     public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
         $this->createdAt = $createdAt;
@@ -60,11 +77,19 @@ class Catc
         return $this;
     }
 
+    /**
+     * @return \DateTimeInterface|null
+     */
     public function getUpdatedAt(): ?\DateTimeInterface
     {
         return $this->updatedAt;
     }
 
+    /**
+     * @param \DateTimeInterface $updatedAt
+     *
+     * @return Catc
+     */
     public function setUpdatedAt(\DateTimeInterface $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
@@ -72,11 +97,19 @@ class Catc
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getTitle(): ?string
     {
         return $this->title;
     }
 
+    /**
+     * @param string $title
+     *
+     * @return Catc
+     */
     public function setTitle(string $title): self
     {
         $this->title = $title;
@@ -92,6 +125,11 @@ class Catc
         return $this->contact;
     }
 
+    /**
+     * @param Contact $contact
+     *
+     * @return Catc
+     */
     public function addContact(Contact $contact): self
     {
         if (!$this->contact->contains($contact)) {
@@ -102,6 +140,11 @@ class Catc
         return $this;
     }
 
+    /**
+     * @param Contact $contact
+     *
+     * @return Catc
+     */
     public function removeContact(Contact $contact): self
     {
         if ($this->contact->contains($contact)) {

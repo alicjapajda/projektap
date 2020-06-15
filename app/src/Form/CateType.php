@@ -23,9 +23,9 @@ class CateType extends AbstractType
      * top most type. Type extensions can further modify the form.
      *
      * @param \Symfony\Component\Form\FormBuilderInterface $builder The form builder
-     * @param array $options The options
-     * @see FormTypeExtensionInterface::buildForm()
+     * @param array                                        $options The options
      *
+     * @see FormTypeExtensionInterface::buildForm()
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {

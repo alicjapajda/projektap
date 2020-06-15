@@ -14,7 +14,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-
 /**
  * Class CateController.
  *
@@ -25,9 +24,9 @@ class CateController extends AbstractController
     /**
      * Index action.
      *
-     * @param \Symfony\Component\HttpFoundation\Request $request HTTP request
-     * @param \App\Repository\CateRepository $cateRepository Cate repository
-     * @param \Knp\Component\Pager\PaginatorInterface $paginator Paginator
+     * @param \Symfony\Component\HttpFoundation\Request $request        HTTP request
+     * @param \App\Repository\CateRepository            $cateRepository Cate repository
+     * @param \Knp\Component\Pager\PaginatorInterface   $paginator      Paginator
      *
      * @return \Symfony\Component\HttpFoundation\Response HTTP response
      *
@@ -76,8 +75,8 @@ class CateController extends AbstractController
     /**
      * Create action.
      *
-     * @param \Symfony\Component\HttpFoundation\Request $request HTTP request
-     * @param \App\Repository\CateRepository $cateRepository Cate repository
+     * @param \Symfony\Component\HttpFoundation\Request $request        HTTP request
+     * @param \App\Repository\CateRepository            $cateRepository Cate repository
      *
      * @return \Symfony\Component\HttpFoundation\Response HTTP response
      *
@@ -103,7 +102,6 @@ class CateController extends AbstractController
 
             $this->addFlash('success', 'message_created_successfully');
 
-
             return $this->redirectToRoute('cate_index');
         }
 
@@ -113,13 +111,12 @@ class CateController extends AbstractController
         );
     }
 
-
     /**
      * Edit action.
      *
-     * @param \Symfony\Component\HttpFoundation\Request $request HTTP request
-     * @param \App\Entity\Cate $cate Cate entity
-     * @param \App\Repository\CateRepository $cateRepository Cate repository
+     * @param \Symfony\Component\HttpFoundation\Request $request        HTTP request
+     * @param \App\Entity\Cate                          $cate           Cate entity
+     * @param \App\Repository\CateRepository            $cateRepository Cate repository
      *
      * @return \Symfony\Component\HttpFoundation\Response HTTP response
      *
@@ -156,13 +153,12 @@ class CateController extends AbstractController
         );
     }
 
-
     /**
      * Delete action.
      *
-     * @param \Symfony\Component\HttpFoundation\Request $request            HTTP request
-     * @param \App\Entity\Cate                    $cate           Cate entity
-     * @param \App\Repository\CateRepository        $cateRepository Cate repository
+     * @param \Symfony\Component\HttpFoundation\Request $request        HTTP request
+     * @param \App\Entity\Cate                          $cate           Cate entity
+     * @param \App\Repository\CateRepository            $cateRepository Cate repository
      *
      * @return \Symfony\Component\HttpFoundation\Response HTTP response
      *
@@ -178,7 +174,6 @@ class CateController extends AbstractController
      */
     public function delete(Request $request, Cate $cate, CateRepository $cateRepository): Response
     {
-
         if ($cate->getEvent()->count()) {
             $this->addFlash('warning', 'message_category_contains_events');
 
@@ -206,5 +201,4 @@ class CateController extends AbstractController
             ]
         );
     }
-
 }

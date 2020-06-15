@@ -8,9 +8,6 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CateRepository")
@@ -44,21 +41,35 @@ class Cate
      */
     private $event;
 
+    /**
+     * Cate constructor.
+     */
     public function __construct()
     {
         $this->event = new ArrayCollection();
     }
 
+    /**
+     * @return int|null
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @return \DateTimeInterface|null
+     */
     public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->createdAt;
     }
 
+    /**
+     * @param \DateTimeInterface $createdAt
+     *
+     * @return Cate
+     */
     public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
         $this->createdAt = $createdAt;
@@ -66,11 +77,19 @@ class Cate
         return $this;
     }
 
+    /**
+     * @return \DateTimeInterface|null
+     */
     public function getUpdatedAt(): ?\DateTimeInterface
     {
         return $this->updatedAt;
     }
 
+    /**
+     * @param \DateTimeInterface $updatedAt
+     *
+     * @return Cate
+     */
     public function setUpdatedAt(\DateTimeInterface $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
@@ -78,11 +97,19 @@ class Cate
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getTitle(): ?string
     {
         return $this->title;
     }
 
+    /**
+     * @param string $title
+     *
+     * @return Cate
+     */
     public function setTitle(string $title): self
     {
         $this->title = $title;
@@ -98,6 +125,11 @@ class Cate
         return $this->event;
     }
 
+    /**
+     * @param Event $event
+     *
+     * @return Cate
+     */
     public function addEvent(Event $event): self
     {
         if (!$this->event->contains($event)) {
@@ -108,6 +140,11 @@ class Cate
         return $this;
     }
 
+    /**
+     * @param Event $event
+     *
+     * @return Cate
+     */
     public function removeEvent(Event $event): self
     {
         if ($this->event->contains($event)) {
@@ -120,9 +157,4 @@ class Cate
 
         return $this;
     }
-
-
 }
-
-
-

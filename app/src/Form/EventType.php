@@ -9,10 +9,10 @@ use App\Entity\Cate;
 use App\Entity\Event;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 /**
  * Class EventType.
@@ -41,7 +41,6 @@ class EventType extends AbstractType
                 'attr' => ['max_length' => 64],
             ]
         );
-
 
         $builder->add('date', DateType::class, [
             'widget' => 'single_text',

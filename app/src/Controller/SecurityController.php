@@ -59,9 +59,4 @@ class SecurityController extends AbstractController
         // Request is intercepted before reaches this exception:
         throw new \Exception('Internal security module error');
     }
-
-
-
-
-
 }

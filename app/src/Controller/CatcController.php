@@ -14,7 +14,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-
 /**
  * Class CatcController.
  *
@@ -25,9 +24,9 @@ class CatcController extends AbstractController
     /**
      * Index action.
      *
-     * @param \Symfony\Component\HttpFoundation\Request $request            HTTP request
-     * @param \App\Repository\CatcRepository        $cateRepository Cate repository
-     * @param \Knp\Component\Pager\PaginatorInterface   $paginator          Paginator
+     * @param \Symfony\Component\HttpFoundation\Request $request        HTTP request
+     * @param \App\Repository\CatcRepository            $catcRepository Catc repository
+     * @param \Knp\Component\Pager\PaginatorInterface   $paginator      Paginator
      *
      * @return \Symfony\Component\HttpFoundation\Response HTTP response
      *
@@ -73,12 +72,11 @@ class CatcController extends AbstractController
         );
     }
 
-
     /**
      * Create action.
      *
-     * @param \Symfony\Component\HttpFoundation\Request $request HTTP request
-     * @param \App\Repository\CatcRepository $catcRepository Catc repository
+     * @param \Symfony\Component\HttpFoundation\Request $request        HTTP request
+     * @param \App\Repository\CatcRepository            $catcRepository Catc repository
      *
      * @return \Symfony\Component\HttpFoundation\Response HTTP response
      *
@@ -104,7 +102,6 @@ class CatcController extends AbstractController
 
             $this->addFlash('success', 'message_created_successfully');
 
-
             return $this->redirectToRoute('catc_index');
         }
 
@@ -114,13 +111,12 @@ class CatcController extends AbstractController
         );
     }
 
-
     /**
      * Edit action.
      *
-     * @param \Symfony\Component\HttpFoundation\Request $request HTTP request
-     * @param \App\Entity\Catc $catc Catc entity
-     * @param \App\Repository\CatcRepository $catcRepository Catc repository
+     * @param \Symfony\Component\HttpFoundation\Request $request        HTTP request
+     * @param \App\Entity\Catc                          $catc           Catc entity
+     * @param \App\Repository\CatcRepository            $catcRepository Catc repository
      *
      * @return \Symfony\Component\HttpFoundation\Response HTTP response
      *
@@ -157,13 +153,12 @@ class CatcController extends AbstractController
         );
     }
 
-
     /**
      * Delete action.
      *
-     * @param \Symfony\Component\HttpFoundation\Request $request            HTTP request
-     * @param \App\Entity\Catc                    $catc           Catc entity
-     * @param \App\Repository\CatcRepository        $catcRepository Catc repository
+     * @param \Symfony\Component\HttpFoundation\Request $request        HTTP request
+     * @param \App\Entity\Catc                          $catc           Catc entity
+     * @param \App\Repository\CatcRepository            $catcRepository Catc repository
      *
      * @return \Symfony\Component\HttpFoundation\Response HTTP response
      *
@@ -201,5 +196,4 @@ class CatcController extends AbstractController
             ]
         );
     }
-
 }

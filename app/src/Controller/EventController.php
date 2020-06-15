@@ -5,7 +5,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Cate;
 use App\Entity\Event;
 use App\Form\EventType;
 use App\Repository\EventRepository;
@@ -14,7 +13,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
 
 /**
  * Class EventController.
@@ -26,9 +24,9 @@ class EventController extends AbstractController
     /**
      * Index action.
      *
-     * @param \Symfony\Component\HttpFoundation\Request $request HTTP request
-     * @param \App\Repository\EventRepository $eventRepository Event repository
-     * @param \Knp\Component\Pager\PaginatorInterface $paginator Paginator
+     * @param \Symfony\Component\HttpFoundation\Request $request         HTTP request
+     * @param \App\Repository\EventRepository           $eventRepository Event repository
+     * @param \Knp\Component\Pager\PaginatorInterface   $paginator       Paginator
      *
      * @return \Symfony\Component\HttpFoundation\Response HTTP response
      *
@@ -40,7 +38,6 @@ class EventController extends AbstractController
      */
     public function index(Request $request, EventRepository $eventRepository, PaginatorInterface $paginator): Response
     {
-
         $pagination = $paginator->paginate(
             $eventRepository->queryLikeCate($request->get('event_cate')),
             $request->query->getInt('page', 1),
@@ -49,21 +46,17 @@ class EventController extends AbstractController
 
         return $this->render(
             'event/index.html.twig',
-                ['pagination' => $pagination,
+            ['pagination' => $pagination,
                 'event_cate' => $request->get('event_cate'),
-
             ]
         );
     }
 
-
-
-
     /**
      * Create action.
      *
-     * @param \Symfony\Component\HttpFoundation\Request $request        HTTP request
-     * @param \App\Repository\EventRepository            $eventRepository Event repository
+     * @param \Symfony\Component\HttpFoundation\Request $request         HTTP request
+     * @param \App\Repository\EventRepository           $eventRepository Event repository
      *
      * @return \Symfony\Component\HttpFoundation\Response HTTP response
      *
@@ -95,15 +88,12 @@ class EventController extends AbstractController
         );
     }
 
-
-
-
     /**
      * Edit action.
      *
-     * @param \Symfony\Component\HttpFoundation\Request $request HTTP request
-     * @param \App\Entity\Event $event Event entity
-     * @param \App\Repository\EventRepository $eventRepository Event repository
+     * @param \Symfony\Component\HttpFoundation\Request $request         HTTP request
+     * @param \App\Entity\Event                         $event           Event entity
+     * @param \App\Repository\EventRepository           $eventRepository Event repository
      *
      * @return \Symfony\Component\HttpFoundation\Response HTTP response
      *
@@ -139,13 +129,12 @@ class EventController extends AbstractController
         );
     }
 
-
     /**
      * Delete action.
      *
-     * @param \Symfony\Component\HttpFoundation\Request $request            HTTP request
-     * @param \App\Entity\Event                    $event           Event entity
-     * @param \App\Repository\EventRepository        $eventRepository Event repository
+     * @param \Symfony\Component\HttpFoundation\Request $request         HTTP request
+     * @param \App\Entity\Event                         $event           Event entity
+     * @param \App\Repository\EventRepository           $eventRepository Event repository
      *
      * @return \Symfony\Component\HttpFoundation\Response HTTP response
      *
@@ -183,6 +172,4 @@ class EventController extends AbstractController
             ]
         );
     }
-
-
 }

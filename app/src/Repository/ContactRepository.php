@@ -10,8 +10,6 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\ORM\QueryBuilder;
 
-
-
 /**
  * Class ContactRepository.
  *
@@ -55,18 +53,6 @@ class ContactRepository extends ServiceEntityRepository
     }
 
     /**
-     * Get or create new query builder.
-     *
-     * @param \Doctrine\ORM\QueryBuilder|null $queryBuilder Query builder
-     *
-     * @return \Doctrine\ORM\QueryBuilder Query builder
-     */
-    private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
-    {
-        return $queryBuilder ?? $this->createQueryBuilder('c');
-    }
-
-    /**
      * Save record.
      *
      * @param \App\Entity\Contact $contact Contact entity
@@ -79,7 +65,6 @@ class ContactRepository extends ServiceEntityRepository
         $this->_em->persist($contact);
         $this->_em->flush($contact);
     }
-
 
     /**
      * Delete record.
@@ -95,4 +80,15 @@ class ContactRepository extends ServiceEntityRepository
         $this->_em->flush($contact);
     }
 
+    /**
+     * Get or create new query builder.
+     *
+     * @param \Doctrine\ORM\QueryBuilder|null $queryBuilder Query builder
+     *
+     * @return \Doctrine\ORM\QueryBuilder Query builder
+     */
+    private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
+    {
+        return $queryBuilder ?? $this->createQueryBuilder('c');
+    }
 }

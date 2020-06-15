@@ -41,7 +41,6 @@ class ContactType extends AbstractType
             ]
         );
 
-
         $builder->add(
             'tel',
             TextType::class,
@@ -52,7 +51,6 @@ class ContactType extends AbstractType
             ]
         );
 
-
         $builder->add(
             'mail',
             TextType::class,
@@ -62,8 +60,6 @@ class ContactType extends AbstractType
                 'attr' => ['max_length' => 64],
             ]
         );
-
-
 
         $builder->add(
             'catc',
