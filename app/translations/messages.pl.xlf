@@ -283,7 +283,25 @@
                                 <target>Filtruj</target>
                             </trans-unit>
 
+                            <trans-unit id="message.deleted_successfully">
+                                <source>message.deleted_successfully</source>
+                                <target>Usunięto</target>
+                            </trans-unit>
 
+                            <trans-unit id="message_category_contains_events">
+                                <source>message_category_contains_events</source>
+                                <target>Kategoria zawiera wydarzenia</target>
+                            </trans-unit>
+
+                            <trans-unit id="Date">
+                                <source>Date</source>
+                                <target>Data</target>
+                            </trans-unit>
+
+                            <trans-unit id="label_none">
+                                <source>label_none</source>
+                                <target>kategoria</target>
+                            </trans-unit>
 
         </body>
     </file>

@@ -300,7 +300,26 @@
                                 <target>Filter</target>
                             </trans-unit>
 
+                            <trans-unit id="message.deleted_successfully">
+                                <source>message.deleted_successfully</source>
+                                <target>Message deleted successfully</target>
+                            </trans-unit>
 
+                            <trans-unit id="message_category_contains_events">
+                                <source>message_category_contains_events</source>
+                                <target>Category contains events</target>
+                            </trans-unit>
+
+
+                            <trans-unit id="Date">
+                                <source>Date</source>
+                                <target>Date</target>
+                            </trans-unit>
+
+                            <trans-unit id="label_none">
+                                <source>label_none</source>
+                                <target>category</target>
+                            </trans-unit>
         </body>
     </file>
 </xliff>

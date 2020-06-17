@@ -1,7 +1,9 @@
 <?php
 
 declare(strict_types=1);
-
+/**
+ * Migration
+ */
 namespace DoctrineMigrations;
 
 use Doctrine\DBAL\Schema\Schema;
@@ -12,11 +14,19 @@ use Doctrine\Migrations\AbstractMigration;
  */
 final class Version20200312173852 extends AbstractMigration
 {
+    /**
+     * @return string
+     */
     public function getDescription(): string
     {
         return '';
     }
 
+    /**
+     * @param Schema $schema
+     *
+     * @throws \Doctrine\DBAL\DBALException
+     */
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
@@ -27,6 +37,11 @@ final class Version20200312173852 extends AbstractMigration
         $this->addSql('CREATE INDEX IDX_4C62E638585B5739 ON contact (catc_id)');
     }
 
+    /**
+     * @param Schema $schema
+     *
+     * @throws \Doctrine\DBAL\DBALException
+     */
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
