@@ -1,9 +1,9 @@
 <?php
-
-declare(strict_types=1);
 /**
- * Migration
+ * Migration20200401134331 class.
  */
+declare(strict_types=1);
+
 namespace DoctrineMigrations;
 
 use Doctrine\DBAL\Schema\Schema;
@@ -15,6 +15,7 @@ use Doctrine\Migrations\AbstractMigration;
 final class Version20200401134331 extends AbstractMigration
 {
     /**
+     * Getter Description.
      * @return string
      */
     public function getDescription(): string
@@ -23,6 +24,7 @@ final class Version20200401134331 extends AbstractMigration
     }
 
     /**
+     * Up action.
      * @param Schema $schema
      *
      * @throws \Doctrine\DBAL\DBALException
@@ -36,6 +38,7 @@ final class Version20200401134331 extends AbstractMigration
     }
 
     /**
+     * Down action.
      * @param Schema $schema
      *
      * @throws \Doctrine\DBAL\DBALException

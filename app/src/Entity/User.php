@@ -1,6 +1,6 @@
 <?php
 /**
- * User entity.
+ * User Entity.
  */
 
 namespace App\Entity;

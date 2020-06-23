@@ -11,7 +11,7 @@ use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\ORM\QueryBuilder;
 
 /**
- * Class CateRepository.
+ * Class EventRepository.
  *
  * @method Event|null find($id, $lockMode = null, $lockVersion = null)
  * @method Event|null findOneBy(array $criteria, array $orderBy = null)
@@ -83,6 +83,7 @@ class EventRepository extends ServiceEntityRepository
     }
 
     /**
+     * Query like cate.
      * @param string|null $cate
      *
      * @return QueryBuilder
