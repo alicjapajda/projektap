@@ -33,7 +33,7 @@ class HelloWorldController extends AbstractController
     public function index(string $name): Response
     {
         return $this->render(
-            'hello-world/index.html.twig.twig',
+            'hello-world/index.html.twig',
             ['name' => $name]
         );
     }

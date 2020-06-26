@@ -320,6 +320,26 @@
                                 <source>label_none</source>
                                 <target>category</target>
                             </trans-unit>
+
+                            <trans-unit id="Please sign in">
+                                <source>Please sign in</source>
+                                <target>Please sign in</target>
+                            </trans-unit>
+
+                            <trans-unit id="Password">
+                                <source>Password</source>
+                                <target>Password</target>
+                            </trans-unit>
+
+                            <trans-unit id="Sign in">
+                                <source>Sign in</source>
+                                <target>Sign in</target>
+                            </trans-unit>
+
+                            <trans-unit id="Log in!">
+                                <source>Log in!</source>
+                                <target>Log in!</target>
+                            </trans-unit>
         </body>
     </file>
 </xliff>
